@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import os
+from aiogram.types import MessageEntity
 from dataclasses import dataclass
 from datetime import datetime, timezone, timedelta
 from typing import Optional
@@ -161,11 +162,6 @@ async def schedule_abandon_check(user_id: int):
         pending_leads.pop(user_id, None)
 
 # -------- Команды --------
-@r.message(Command("test_emoji"))
-async def test_emoji(message: Message):
-    await message.answer('<tg-emoji emoji-id="6008095274948366144">☯️</tg-emoji>')
-
-
 @r.message(CommandStart())
 async def cmd_start(message: Message, state: FSMContext):
     await state.clear()
