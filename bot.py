@@ -15,12 +15,12 @@ from aiogram.types import (
 from dotenv import load_dotenv
 
 load_dotenv()
-BOT_TOKEN = os.getenv("BOT_TOKEN",parse_mode="HTML")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_CHAT_ID = int(os.getenv("ADMIN_CHAT_ID", "0"))
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 
-bot = Bot(BOT_TOKEN)
+bot = Bot(BOT_TOKEN,parse_mode="HTML")
 dp = Dispatcher()
 r = Router()
 dp.include_router(r)
